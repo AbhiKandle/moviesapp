@@ -163,6 +163,7 @@ promise
   });
 
 document.getElementById("search_movie").addEventListener("click", function () {
+  document.getElementById("container").innerHTML = "";
   let movies_search = document.getElementById("searchItem").value;
 
   let loder2 = document.getElementById("loder2");
