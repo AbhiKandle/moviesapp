@@ -162,26 +162,12 @@ promise
     console.log(error);
   });
 
-document.getElementById("search_movie").addEventListener("click", function () {
-  document.getElementById("container").innerHTML = "";
-  let movies_search = document.getElementById("searchItem").value;
-
-  let loder2 = document.getElementById("loder2");
-  loder2.style.display = "block";
-
-  async function Abh() {
-    let res = await fetch(
-      `http://www.omdbapi.com/?apikey=e37352ab&s=${movies_search}`
-    );
-    let Ab = await res.json();
-    let data = Ab.Search;
-
-    searchData(data);
-    // console.log(Ab);
-  }
-
-  Abh();
+let movies_search;
+document.getElementById("searchItem").addEventListener("input", function () {
+  debounce(Abh);
 });
+
+// let movies_search = document.getElementById("searchItem").value;
 
 function searchData(x) {
   document.getElementById("container").innerHTML = "";
@@ -206,4 +192,32 @@ function searchData(x) {
 
     conatiner.append(div2);
   });
+}
+
+async function Abh() {
+  document.getElementById("container").innerHTML = "";
+  movies_search = document.getElementById("searchItem").value;
+  let loder2 = document.getElementById("loder2");
+  loder2.style.display = "block";
+  try {
+    let res = await fetch(
+      `https://www.omdbapi.com/?apikey=e37352ab&s=${movies_search}`
+    );
+    let Ab = await res.json();
+    let data = Ab.Search;
+
+    searchData(data);
+    console.log(Ab);
+  } catch {}
+}
+
+let id;
+function debounce(fun) {
+  if (id) {
+    clearTimeout(id);
+  }
+
+  id = setTimeout(function () {
+    fun();
+  }, 1000);
 }
