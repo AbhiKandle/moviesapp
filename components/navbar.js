@@ -4,10 +4,10 @@ function navbar() {
       <i class="fa-solid fa-bars"></i>
     </span>
     <span id="bar">
-      <img
-        src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
-        alt=""
-      />
+    <a href="index.html"> <img
+    src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
+    alt=""
+  /></a>
     </span>
     <span>TV</span>
     <span>Movies</span>
