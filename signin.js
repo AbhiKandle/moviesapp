@@ -1,3 +1,9 @@
+import navbar from "./components/navbar.js";
+let navbarRe = document.getElementById("nav");
+navbarRe.innerHTML = navbar();
+
+document.getElementById("second_side").style.display = "none";
+
 let signin = JSON.parse(localStorage.getItem("Info")) || [];
 
 document.getElementById("form").addEventListener("submit", function (e) {

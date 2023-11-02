@@ -1,3 +1,8 @@
+import navbar from "./components/navbar.js";
+
+let navbarRe = document.getElementById("nav");
+navbarRe.innerHTML = navbar();
+
 let div1 = document.getElementById("slid");
 
 let imgarr = [
@@ -12,7 +17,7 @@ img.src = imgarr[0];
 div1.append(img);
 
 function slid() {
-  i = 1;
+  let i = 1;
   setInterval(function () {
     img.src = imgarr[i];
     i++;
